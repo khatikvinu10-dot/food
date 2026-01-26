@@ -1,4 +1,4 @@
-import React, { use, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './LoginPopup.css'
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../Context/StoreContext';
@@ -23,34 +23,25 @@ const LoginPopup = ({ setShowLogin }) => {
     
 
     const onLogin = async (event) => {
-        event.preventDefault()
-        let newUrl = url;
-        if (currState==="Login") {
-            newUrl += "/api/user/login"
-        }
-        else{
-            newUrl += "/api/user/register"
-        }
-        
-        const response = await axios.post(newUrl,data);
+    event.preventDefault();
 
-        if (response.data.success) {
-            setToken(response.data.token);
-            localStorage.setItem("token",response.data.token);
-            setShowLogin(false);
-        }
-        else{
-            alert(response.data.message);
-        }
-
-        if (response.ok) {
-            const data = await response.json();
-            localStorage.setItem("token",data.token); 
-        } else {
-            alert("Login failed");
-        }
+    let newUrl = url;
+    if (currState === "Login") {
+        newUrl += "/api/user/login";
+    } else {
+        newUrl += "/api/user/register";
     }
 
+    const response = await axios.post(newUrl, data);
+
+    if (response.data.success) {
+        setToken(response.data.token);
+        localStorage.setItem("token", response.data.token);
+        setShowLogin(false);
+    } else {
+        alert(response.data.message);
+    }
+};
     return (
         <div className='login-popup'>
             <form onSubmit={onLogin} className="login-popup-container">
@@ -72,8 +63,6 @@ const LoginPopup = ({ setShowLogin }) => {
                     ? <p>Create a new account? <span onClick={() => setCurrState("Sign Up")}>Click here</span></p>
                     : <p>Alarady have an account? <span onClick={() => setCurrState("Login")}>Login here</span></p>
                 }
-
-
             </form>
         </div>
     );

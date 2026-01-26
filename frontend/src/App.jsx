@@ -6,21 +6,34 @@ import Cart from './Pages/Cart/Cart';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import Footer from './Components/Footer/Footer';
 import LoginPopup from './Components/LoginPopep/LoginPopup';
+import Verify from './Pages/Verify/Verify.jsx';
+import MyOrders from './Pages/MyOrders/MyOrders.jsx';
+import SearchResults from './Pages/SearchResult/SearchResult.jsx';
+import ViewMenu from './Pages/ViewMenu/ViewMenu.jsx';
+import FoodDisplay from './Components/FoodDisplay/FoodDisplay.jsx';
+
+
 
 const App = () => {
 
-const [showLogin,setShowLogin] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
 
 
   return (
     <>
-    {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
+      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
+     
       <div className='app'>
         <Navbar setShowLogin={setShowLogin} />
         <Routes>
-          < Route path='/' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/Order' element={<PlaceOrder />} />
+          <Route path='/Verify' element={<Verify />} />
+          <Route path='/MyOrders' element={<MyOrders/>}/>
+          <Route path='/footer' element={<Footer/>}/>
+          <Route path='/Search' element={<SearchResults/>}/>
+          <Route path='ViewMenu' element={<ViewMenu/>} />
         </Routes>
       </div>
       <Footer />

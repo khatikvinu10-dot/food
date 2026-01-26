@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 import './Add.css'
 import { assets } from '../../assets/assets';
 import axios from "axios";
 import { toast } from 'react-toastify';
 
 const Add = ({url}) => {
-
+  const navigate = useNavigate()
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     name: "",
@@ -40,6 +41,7 @@ const Add = ({url}) => {
       })
       setImage(false)
       toast.success(response.data.massage);
+      navigate('/list')
     }
     else {
       toast.error(response.data.massage);
@@ -73,7 +75,7 @@ const Add = ({url}) => {
               <option value="Rolls">Rolls</option>
               <option value="Deserts">Deserts</option>
               <option value="Sandwich">Sandwich</option>
-              <option value="Cakes">Cakes</option>
+              <option value="Cake">Cake</option>
               <option value="Pure Veg">Pure Veg</option>
               <option value="Pasta">Pasta</option>
               <option value="Noodles">Noodles</option>

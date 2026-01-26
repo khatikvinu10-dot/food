@@ -18,7 +18,9 @@ const List = ({url}) => {
   }
 
   const removeFood = async (foodId) => {
+    console.log(foodId,'IDDDD')
     const response = await axios.post(`${url}/api/food/remove`,{id:foodId});
+    console.log(response,"RESSS Remove")
     await fetchList();
     if (response.data.success) {
       toast.success(response.data.massage)
@@ -34,7 +36,7 @@ const List = ({url}) => {
 
   return (
     <div className='list add flex-col'>
-      <p>All Foods List</p>
+      <h2>All Foods List</h2>
       <div className="list-table">
         <div className="list-table-format title">
           <b>Image</b>

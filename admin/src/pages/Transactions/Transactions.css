@@ -1,0 +1,94 @@
+.transactions {
+    width: 100%;
+    padding: 30px 100px;
+    box-sizing: border-box;
+    background-color: #f8f9fb;
+    min-height: 100vh;
+}
+
+.transactions h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.transaction-status {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.transaction-status ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 14px 18px;
+    margin: 0;
+    background: #f1f3f6;
+    font-weight: 600;
+    color: #555;
+}
+
+.transaction-status ul a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.transaction-tbody {
+    display: block;
+}
+
+.transaction-status tr {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 14px 18px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+    font-size: 14px;
+    color: #444;
+}
+
+.transaction-status tr:last-child {
+    border-bottom: none;
+}
+
+.transaction-status td {
+    margin: 0;
+}
+
+.completed {
+    color: #22c55e;
+    font-weight: 600;
+}
+
+.pending {
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+.failed {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.transaction-status td:nth-child(3) {
+    text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+
+    .transaction-status ul,
+    .transaction-status tr {
+        grid-template-columns: 1.5fr 1fr 1fr;
+    }
+
+    .transaction-status ul a:nth-child(4),
+    .transaction-status ul a:nth-child(5),
+    .transaction-status tr td:nth-child(4),
+    .transaction-status tr td:nth-child(5) {
+        display: none;
+    }
+}

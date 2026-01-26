@@ -1,0 +1,89 @@
+.search-results {
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    animation: fadeIn 1s;
+    cursor: pointer;
+}
+
+.search-results h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.food-card {
+    width: 400px;
+    padding: 12px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    animation: fadeIn 1s;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+}
+
+.food-card:hover {
+    transform: scale(1.02);
+}
+
+.food-card img:first-child {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.food-card h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0 5px;
+}
+
+.food-card p:nth-of-type(1) {
+    font-size: 14px;
+    color: #666;
+}
+
+.food-card p:nth-of-type(2) {
+    font-size: 22px;
+    font-weight: 500;
+    color: #e63946;
+    margin: 10px 0;
+}
+
+.food-card .add {
+    width: 35px;
+    position: absolute;
+    bottom: 130px;
+    left: 340px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.food-card .food-item-counter {
+    width: 100;
+    position: absolute;
+    bottom: 130px;
+    left: 240px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.food-card .food-item-counter img {
+    width: 30px;
+    height: 30px;
+}
